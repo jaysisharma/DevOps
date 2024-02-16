@@ -1,0 +1,13 @@
+    pipeline {
+    agent any
+
+    stages {
+        stage('Deploy') {
+            steps {
+                git branch: 'main', changelog: false, url: 'https://github.com/jaysisharma/New.git'
+                sh 'cp * /var/www/html'
+                echo "Deploy Successful"
+            }
+        }
+    }
+}
